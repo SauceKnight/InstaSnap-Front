@@ -1,0 +1,38 @@
+.Post {
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 10px;
+    width: 35%;
+    margin: auto;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+}
+
+.UserPost {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.UserPostProfileImg {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.PostImg {
+    width: 100%;
+    display: block;
+    height: 100%;
+    padding: 0;
+}
+
+.PostImg img {
+    width: 100%;
+    height: 100%;
+}
+
+.PostComments {
+    border-top: 1px solid black;
+}
