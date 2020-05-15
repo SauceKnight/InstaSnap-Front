@@ -1,3 +1,4 @@
+import { API } from '../config';
 
 const SET_TOKEN = 'LOGIN/AUTHENTICATION';
 const UPLOAD_IMG_TOKEN = 'IMAGE/UPLOAD';
@@ -7,7 +8,7 @@ export const uploadImgToken = payload => ({ type: SET_TOKEN, payload });
 
 export const login = (username, password) => async dispatch => {
     // Dispatch an action, here
-    const response = await fetch(`${process.env.API_URL}/users/token`, {
+    const response = await fetch(`${API}/users/token`, {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),

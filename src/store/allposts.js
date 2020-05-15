@@ -1,9 +1,11 @@
+import { API } from '../config';
+
 const LOAD = 'posts/load';
 
 export const load = list => ({ type: LOAD, list });
 
 export const getPosts = () => async (dispatch, getState) => {
-    const response = await fetch(`${process.env.API_URL}/posts`);
+    const response = await fetch(`${API}/posts`);
     if (response.ok) {
         const { posts } = await response.json();
         dispatch(load(posts));

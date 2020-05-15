@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import './Upload.css';
+import { API } from '../../config';
 
 const CLOUDINARY_UPLOAD_PRESET = 'InstaSnap';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/sauceknight/image/upload';
@@ -61,7 +62,7 @@ class Upload extends React.Component {
         const caption = this.state.caption;
         const userID = parseInt(window.localStorage.getItem('userID'));
         console.log(userID);
-        const response = await fetch(`http://localhost:8080/user/upload`, {
+        const response = await fetch(`${API}/user/upload`, {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ image, caption, userID }),
