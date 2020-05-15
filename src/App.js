@@ -20,7 +20,8 @@ function App() {
       {/* <Route exact path='/login' component={Login} />
       <Route exact path='/' component={Header} />
       <Route exact path='/upload' component={Upload} /> */}
-      <Post />
+      {/* <Post /> */}
+      <h1> Test</h1>
     </Switch>
   );
 }
