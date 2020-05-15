@@ -1,17 +1,23 @@
+body {
+    margin: 0;
+}
+
 .InstaNavBar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
+    border-bottom: 1px solid black;
+    margin-bottom: 45px;
     
 }
 .InstaNavBar img {
-    width: 5%;
-    height:5%;
+    width:30px;
+    height:30px;
 }
 
 .InstaSnap-Logo {
-    background-image: url(../images/instagram-logo.png);
+    background-image: url(/public/images/instagram-logo.png);
     background-color: black;
     overflow: hidden;
 }

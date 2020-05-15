@@ -7,11 +7,11 @@ class Header extends React.Component {
         return (
             <nav className="InstaNavBar">
                 <img src='../images/instagram-logo.png' alt='logo' />
-                <div className='InstaText'>
-                    <a href='/'>Instagram</a>
-                </div>
                 <div className='SearchBar'>
                     <input type='text' placeholder='Search for User...' />
+                </div>
+                <div className='InstaText'>
+                    <a href='/upload'>Upload a Pic</a>
                 </div>
             </nav>
         );

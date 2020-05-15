@@ -1,0 +1,25 @@
+.uploadImage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.picSelect {
+    cursor: pointer;
+}
+
+.imageDrop {
+    border: 1px solid black;
+}
+
+.imagePre {
+    height: 400px;
+    width: 400px;
+}
+
+.preview {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
