@@ -37,3 +37,9 @@
 .PostComments {
     border-top: 1px solid black;
 }
+
+.PostComments input {
+    width: 99%;
+    z-index: 1;
+    position: relative;
+}

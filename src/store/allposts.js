@@ -38,7 +38,6 @@ export default function reducer(state = { types: [] }, action) {
         //     };
         // }
         case "CLEAR_POSTS": {
-            debugger;
             return {
                 ...state,
                 list: []

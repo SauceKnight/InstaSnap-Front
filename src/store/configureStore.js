@@ -3,13 +3,15 @@ import thunk from 'redux-thunk';
 import authentication from './authentication';
 import posts from './allposts';
 import userprofile from './userProfile';
+import user from './user';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducer = combineReducers({
     authentication,
     posts,
-    userprofile
+    userprofile,
+    user
 });
 
 const configureStore = initialState => {

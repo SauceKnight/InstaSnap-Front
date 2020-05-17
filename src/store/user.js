@@ -1,16 +1,14 @@
 import { API } from '../config';
 
-const PROFILE = 'profile/posts'
 const USER = 'profile/user'
 
-export const profile = list => ({ type: PROFILE, list });
-export const user = list => ({ type: USER, list });
+export const selectedUser = list => ({ type: USER, list });
 
-export const getProfilePosts = (user) => async (dispatch) => {
-    const response = await fetch(`${API}/profile/${user}`);
+export const getUser = (user) => async (dispatch) => {
+    const response = await fetch(`${API}/user/${user}`);
     if (response.ok) {
-        const { userProfile } = await response.json();
-        dispatch(profile(userProfile));
+        const res = await response.json();
+        dispatch(selectedUser(res));
     }
 }
 
@@ -19,10 +17,10 @@ export default function reducer(state = { types: [] }, action) {
     switch (action.type) {
 
 
-        case PROFILE: {
+        case USER: {
             return {
                 ...state,
-                list: action.list.Posts,
+                list: action.list.user,
             };
         }
 

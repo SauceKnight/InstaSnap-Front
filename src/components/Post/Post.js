@@ -8,15 +8,27 @@ class Post extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            comment: ''
+        }
     }
 
     componentDidMount() {
-        debugger;
         this.props.getPosts();
     }
 
     handleCreated = (posts) => {
         this.props.handleCreated(posts)
+    }
+
+    updateComment = e => {
+        this.setState({ comment: e.target.value });
+
+    }
+
+    addComment = e => {
+        e.preventDefault();
+
     }
 
     render() {
@@ -43,6 +55,9 @@ class Post extends React.Component {
                             </div>
                             <div className='PostComments'>
                                 <p> {post.caption}</p>
+                                <form>
+                                    <input type='text' placeholder='Add a comment' onChange={this.updateComment} onSubmit={this.addComment} />
+                                </form>
                             </div>
                         </div>
                     );
@@ -54,7 +69,6 @@ class Post extends React.Component {
 }
 
 const mapStateToProps = state => {
-    debugger;
     return {
         posts: state.posts.list,
     };

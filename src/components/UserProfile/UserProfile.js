@@ -1,43 +1,19 @@
 import React, { useEffect } from 'react';
-// import './Post.css';
+import './UserProfile.css';
 import { connect } from 'react-redux';
 import { getProfilePosts } from '../../store/userProfile';
+import { getUser } from '../../store/user';
 import { Link } from 'react-router-dom';
+import Header from '../Header/Header.js'
 
 const UserProfile = (props) => {
 
-    // constructor(props) {
-    //     super(props);
-    //     // this.pathname = this.props.location.pathname.split('/');
-    //     // this.user = this.pathname[this.pathname.length - 1];
-
-    // }
-
-    // componentDidMount() {
-    //     debugger;
-    //     this.props.getProfilePosts(this.props.match.params.userName);
-    // }
-
-    // async componentWillUnmount() {
-    //     await this.props.clearPosts();
-    //     debugger;
-    // }
-
     useEffect(() => {
         props.getProfilePosts(props.match.params.userName);
-        debugger;
-        return () => {
-            debugger;
-            props.clearPosts()
-        }
+        props.getUser(props.match.params.userName);
+
     }, [props.match.params.userName])
 
-    useEffect(() => {
-        return () => {
-            debugger;
-            props.clearPosts()
-        }
-    }, [])
 
     const handleCreated = (posts) => {
         props.handleCreated(posts)
@@ -48,6 +24,11 @@ const UserProfile = (props) => {
     }
     return (
         <div>
+            <Header />
+            <div className='user_profile'>
+                {console.log(props)}
+                <img src={props.user.profilePic} className='profile_pic' />
+            </div>
             {props.userProfile.map(post => {
                 return (
                     <div className='Post' key={post.id}>
@@ -77,18 +58,16 @@ const UserProfile = (props) => {
 const mapStateToProps = state => {
     return {
         userProfile: state.userprofile.list,
+        user: state.user.list
+
     };
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         getProfilePosts: (user) => dispatch(getProfilePosts(user)),
-        clearPosts: async () => {
+        getUser: (user) => dispatch(getUser(user)),
 
-            const result = dispatch({ type: "CLEAR_POSTS" })
-            console.log(result);
-            debugger;
-        }
     }
 }
 
