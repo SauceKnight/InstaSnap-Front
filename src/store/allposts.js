@@ -37,12 +37,6 @@ export default function reducer(state = { types: [] }, action) {
         //         list: action.list.Posts
         //     };
         // }
-        case "CLEAR_POSTS": {
-            return {
-                ...state,
-                list: []
-            };
-        }
 
         default: return state;
     }

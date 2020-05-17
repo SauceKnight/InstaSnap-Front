@@ -10,6 +10,10 @@ body {
     border-bottom: 1px solid black;
     margin-bottom: 15px;
     height: 45px;
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 10;
     
 }
 .InstaNavBar img {
@@ -27,6 +31,8 @@ a {
     text-decoration: none;
     font-size: 28px;
     font-family: 'Billabong';
+    cursor: pointer;
+    color: black;
 }
 
 .logo_font {
@@ -36,10 +42,30 @@ a {
     margin-bottom: 4px;
 }
 
-input {
+/* input {
     border-radius: 4px;
-}
+} */
 
 .upload_img {
     border-radius: 50px;
+}
+
+.image_form {
+    display: none;
+}
+
+.form_display {
+    z-index: 10;
+    position: fixed;
+    top: 25%;
+    left: 30%;
+    margin: 0;
+    width: 600px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.blur {
+    background: rgba(0,0,0,.5);
+    opacity: .2;
 }

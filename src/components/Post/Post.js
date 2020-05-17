@@ -38,7 +38,7 @@ class Post extends React.Component {
         }
         console.log(this.props.posts);
         return (
-            <div>
+            <div className='all_posts'>
                 {this.props.posts.map(post => {
                     return (
                         <div className='Post' key={post.id}>
@@ -55,7 +55,7 @@ class Post extends React.Component {
                             </div>
                             <div className='PostComments'>
                                 <p> {`${post.User.userName}: ${post.caption}`}</p>
-                                <form>
+                                <form className='comment_form'>
                                     <input type='text' placeholder='Add a comment' onChange={this.updateComment} onSubmit={this.addComment} />
                                 </form>
                             </div>

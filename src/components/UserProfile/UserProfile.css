@@ -6,6 +6,13 @@ border-radius: 4px;
 
 .user_profile {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid gray;
+    width: 75%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding-top: 55px;
 }

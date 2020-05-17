@@ -24,13 +24,6 @@ export default function reducer(state = { types: [] }, action) {
             };
         }
 
-        case "CLEAR_POSTS": {
-            return {
-                ...state,
-                list: []
-            };
-        }
-
         default: return state;
     }
 }

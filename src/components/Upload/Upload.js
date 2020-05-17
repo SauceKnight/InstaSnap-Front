@@ -53,7 +53,6 @@ class Upload extends React.Component {
     }
 
     uploadImg = async (e) => {
-        e.preventDefault();
         console.log(this.state.image);
         console.log(this.state.caption);
 
@@ -69,6 +68,10 @@ class Upload extends React.Component {
         });
 
         this.setState({ uploaded: 'true' });
+        const back = document.querySelector('.all_posts');
+        back.classList.remove('blur');
+
+
     }
 
     render() {
@@ -78,37 +81,39 @@ class Upload extends React.Component {
         }
 
         return (
-            <form className='uploadImage'>
-                <div className='imageDrop'>
-                    <Dropzone
-                        onDrop={this.onImageDrop.bind(this)}
-                        accept="image/*"
-                        multiple={false}>
-                        {({ getRootProps, getInputProps }) => {
-                            return (
-                                <div
-                                    {...getRootProps()}
-                                >
-                                    <input {...getInputProps()} />
-                                    {
-                                        <p className='picSelect'>Click here to select an img file to upload.</p>
-                                    }
-                                </div>
-                            )
-                        }}
-                    </Dropzone>
-                </div>
-                <div>
-                    <div>
-                        {this.state.image === '' ? null :
-                            <div className='preview' >
-                                <img className='imagePre' src={this.state.image} />
-                                <input type='text' placeholder='Insert caption Here' onChange={this.updateCaption} />
-                                <input type='submit' value='Upload' onClick={this.uploadImg} />
-                            </div>}
+            <div className='image_form'>
+                <form className='uploadImage'>
+                    <div className='imageDrop'>
+                        <Dropzone
+                            onDrop={this.onImageDrop.bind(this)}
+                            accept="image/*"
+                            multiple={false}>
+                            {({ getRootProps, getInputProps }) => {
+                                return (
+                                    <div
+                                        {...getRootProps()}
+                                    >
+                                        <input {...getInputProps()} />
+                                        {
+                                            <p className='picSelect'>Click here to select image</p>
+                                        }
+                                    </div>
+                                )
+                            }}
+                        </Dropzone>
                     </div>
-                </div>
-            </form>
+                    <div>
+                        <div>
+                            {this.state.image === '' ? null :
+                                <div className='preview' >
+                                    <img className='imagePre' src={this.state.image} />
+                                    <input type='text' placeholder='Insert caption Here' onChange={this.updateCaption} />
+                                    <input type='submit' value='Upload' onClick={this.uploadImg} />
+                                </div>}
+                        </div>
+                    </div>
+                </form>
+            </div>
         );
     }
 }

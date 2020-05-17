@@ -19,18 +19,23 @@ const UserProfile = (props) => {
         props.handleCreated(posts)
     }
 
+
+
     if (!props.userProfile) {
         return null;
     }
     if (!props.user) {
         return null;
     }
+
     return (
         <div>
-            <Header props={props} />
+            <Header />
             <div className='user_profile'>
                 {console.log(props)}
                 <img src={props.user.profilePic} className='profile_pic' />
+                <p>{props.user.userName}</p>
+
             </div>
             {props.userProfile.map(post => {
                 return (
@@ -47,7 +52,7 @@ const UserProfile = (props) => {
                             <img src={post.image} />
                         </div>
                         <div className='PostComments'>
-                            <p> {post.caption}</p>
+                            <p> {props.user.userName}: {post.caption}</p>
                         </div>
                     </div>
                 );
