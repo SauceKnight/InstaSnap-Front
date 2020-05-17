@@ -22,9 +22,12 @@ const UserProfile = (props) => {
     if (!props.userProfile) {
         return null;
     }
+    if (!props.user) {
+        return null;
+    }
     return (
         <div>
-            <Header />
+            <Header props={props} />
             <div className='user_profile'>
                 {console.log(props)}
                 <img src={props.user.profilePic} className='profile_pic' />

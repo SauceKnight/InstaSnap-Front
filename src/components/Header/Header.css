@@ -9,6 +9,7 @@ body {
     align-items: center;
     border-bottom: 1px solid black;
     margin-bottom: 15px;
+    height: 45px;
     
 }
 .InstaNavBar img {
@@ -25,9 +26,20 @@ body {
 a {
     text-decoration: none;
     font-size: 28px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Billabong';
+}
+
+.logo_font {
+    font-family: 'Philosopher';
+    font-size: 26px;
+    margin: 0;
+    margin-bottom: 4px;
 }
 
 input {
     border-radius: 4px;
+}
+
+.upload_img {
+    border-radius: 50px;
 }

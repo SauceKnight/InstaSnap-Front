@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Header.css';
+import { connect } from 'react-redux';
+import { getUser } from '../../store/user';
 
-class Header extends React.Component {
+const Header = () => {
 
-    render() {
-        return (
-            <nav className="InstaNavBar">
-                <img src='../images/instagram-logo.png' alt='logo' />
-                <div className='SearchBar'>
-                    <input type='text' placeholder='Search for User...' />
-                </div>
-                <div className='InstaText'>
-                    <a href='/upload'>Upload a Pic</a>
-                </div>
-            </nav>
-        );
-    }
+    return (
+
+        <nav className="InstaNavBar">
+            <p className='logo_font'> InstaSnap </p>
+            <div className='SearchBar'>
+                <input type='text' placeholder='Search for User...' />
+            </div>
+            <div className='InstaText'>
+                <a href='/upload'>
+                    <img className='upload_img' src='./images/upload-img.png' />
+                </a>
+                <a href='/upload'>
+                </a>
+            </div>
+        </nav>
+    );
 }
+
 
 export default Header;

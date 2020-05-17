@@ -54,7 +54,7 @@ class Post extends React.Component {
                                 <img src={post.image} />
                             </div>
                             <div className='PostComments'>
-                                <p> {post.caption}</p>
+                                <p> {`${post.User.userName}: ${post.caption}`}</p>
                                 <form>
                                     <input type='text' placeholder='Add a comment' onChange={this.updateComment} onSubmit={this.addComment} />
                                 </form>

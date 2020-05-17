@@ -29,6 +29,7 @@ export const login = (username, password) => async dispatch => {
     if (response.ok) {
         const payload = await response.json();
         window.localStorage.setItem("userID", payload.user.id);
+        window.localStorage.setItem("userName", payload.user.name);
         dispatch(setToken(payload));
     }
 
@@ -45,6 +46,7 @@ export const register = (username, password, email) => async dispatch => {
     if (response.ok) {
         const payload = await response.json();
         window.localStorage.setItem("userID", payload.user.id);
+        window.localStorage.setItem("userName", payload.user.userName);
         dispatch(regToken(payload));
     }
 
