@@ -2,6 +2,7 @@ import React from 'react';
 import './Post.css';
 import { connect } from 'react-redux';
 import { getPosts } from '../../store/allposts';
+import { Link } from 'react-router-dom';
 
 class Post extends React.Component {
 
@@ -10,6 +11,7 @@ class Post extends React.Component {
     }
 
     componentDidMount() {
+        debugger;
         this.props.getPosts();
     }
 
@@ -18,20 +20,23 @@ class Post extends React.Component {
     }
 
     render() {
+
         if (!this.props.posts) {
             return null;
         }
-
+        console.log(this.props.posts);
         return (
             <div>
                 {this.props.posts.map(post => {
                     return (
-                        <div className='Post'>
+                        <div className='Post' key={post.id}>
                             <header className='UserPost'>
                                 <div className='UserPostProfileImg'>
-                                    <img src='https://cdn.pixabay.com/photo/2016/08/09/17/52/instagram-1581266_960_720.jpg' width='30px' height='30px' />
+                                    <img src={post.User.profilePic} width='30px' height='30px' />
                                 </div>
-                                <div className='UserPostName'> {post.User.userName}</div>
+                                <div className='UserPostName'>
+                                    <Link to={`/profile/${post.User.userName}`}> {post.User.userName}</Link>
+                                </div>
                             </header>
                             <div className='PostImg'>
                                 <img src={post.image} />
@@ -49,6 +54,7 @@ class Post extends React.Component {
 }
 
 const mapStateToProps = state => {
+    debugger;
     return {
         posts: state.posts.list,
     };

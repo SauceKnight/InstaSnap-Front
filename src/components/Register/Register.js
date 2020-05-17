@@ -1,26 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { login } from '../../store/authentication';
-import './Login.css';
+import { register } from '../../store/authentication';
+import './Register.css';
 
-class Login extends React.Component {
+class Register extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: 'Alfredo2',
-            password: 'password2',
+            email: '',
+            username: '',
+            password: '',
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     async handleSubmit(e) {
         e.preventDefault();
-        this.props.login(this.state.username, this.state.password);
+        this.props.register(this.state.username, this.state.password, this.state.email);
     }
 
     updateUsername = e => {
         this.setState({ username: e.target.value });
+    }
+
+    updateEmail = e => {
+        this.setState({ email: e.target.value });
     }
 
     updatePassword = e => {
@@ -41,12 +46,13 @@ class Login extends React.Component {
                 <div className='sign-up-form'>
                     <h1>Instagram</h1>
                     <form className='sign-up-info' onSubmit={this.handleSubmit} >
+                        <input className="info" type="text" placeholder='Email' value={this.state.email} onChange={this.updateEmail} /><br />
                         <input className="info" type="text" placeholder='Username' value={this.state.username} onChange={this.updateUsername} /><br />
                         <input className="info" type="password" autoComplete="off" placeholder='Password' required value={this.state.password} onChange={this.updatePassword} /><br />
                         <input className="submit" type="submit" value="Log-In" autoComplete="off" /><br />
                         <div>
-                            <p>Need an account?
-                              <a className='sign-up-connector' href="/register">SignUp</a>
+                            <p>Already have an account?
+                              <a className='sign-up-connector' href="/login">Login</a>
                             </p>
                         </div>
                     </form>
@@ -64,7 +70,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        login: (username, password) => dispatch(login(username, password))
+        register: (email, password, username) => dispatch(register(email, password, username))
     };
 };
 
@@ -75,5 +81,5 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(
-    Login
+    Register
 );

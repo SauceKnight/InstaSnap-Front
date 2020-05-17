@@ -1,9 +1,12 @@
 import React from 'react';
-import Header from './components/Header.js';
-import Post from './components/Post/Post.js';
+import Main from './components/Main/Main.js';
 import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import UserProfile from './components/UserProfile/UserProfile.js';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Upload from './components/Upload/Upload.js';
+import { loadToken } from './store/authentication';
 
 
 // const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -14,16 +17,29 @@ import Upload from './components/Upload/Upload.js';
 //   )} />
 // )
 
-function App() {
-  return (
-    <Switch>
-      {/* <Route exact path='/login' component={Login} />
-      <Route exact path='/' component={Header} />
-      <Route exact path='/upload' component={Upload} /> */}
-      {/* <Post /> */}
-      <h1> Test</h1>
-    </Switch>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  // async componentDidMount() {
+  //   this.setState({ loaded: true });
+  //   this.props.loadToken();
+  // }
+
+  render() {
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/register' component={Register} />
+          <Route exact path="/upload" component={Upload} />
+          <Route exact path="/profile/:userName" component={UserProfile} />
+          <Route exact path="/" component={Main} />
+        </Switch>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

@@ -2,12 +2,14 @@ import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
 import authentication from './authentication';
 import posts from './allposts';
+import userprofile from './userProfile';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducer = combineReducers({
     authentication,
-    posts
+    posts,
+    userprofile
 });
 
 const configureStore = initialState => {
