@@ -27,7 +27,7 @@ body {
     overflow: hidden;
 }
 
-a {
+.InstaNavBar a {
     text-decoration: none;
     font-size: 28px;
     font-family: 'Billabong';
@@ -63,6 +63,14 @@ a {
     width: 600px;
     background-color: white;
     border: 1px solid black;
+}
+
+.search_bar input {
+width: 140px;
+border-radius: 4px;
+outline: none;
+border: 1px solid gray;
+height: 18px;
 }
 
 .blur {

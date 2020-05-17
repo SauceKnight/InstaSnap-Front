@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import './Header.css';
 import Upload from '../Upload/Upload'
 
@@ -22,7 +23,7 @@ const Header = () => {
                 <a href='/home'>
                     <p className='logo_font'> InstaSnap </p>
                 </a>
-                <div className='SearchBar'>
+                <div className='search_bar'>
                     <input type='text' placeholder='Search for User...' />
                 </div>
                 <div className='InstaText'>
