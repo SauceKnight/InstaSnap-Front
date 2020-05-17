@@ -35,7 +35,7 @@ class Register extends React.Component {
     render() {
 
         if (this.props.token) {
-            return <Redirect to="/" />;
+            return <Redirect to="/home" />;
         }
 
         return (
@@ -49,10 +49,10 @@ class Register extends React.Component {
                         <input className="info" type="text" placeholder='Email' value={this.state.email} onChange={this.updateEmail} /><br />
                         <input className="info" type="text" placeholder='Username' value={this.state.username} onChange={this.updateUsername} /><br />
                         <input className="info" type="password" autoComplete="off" placeholder='Password' required value={this.state.password} onChange={this.updatePassword} /><br />
-                        <input className="submit" type="submit" value="Log-In" autoComplete="off" /><br />
+                        <input className="submit" type="submit" value="Register" autoComplete="off" /><br />
                         <div>
                             <p>Already have an account?
-                              <a className='sign-up-connector' href="/login">Login</a>
+                              <a className='sign-up-connector' href="/">Login</a>
                             </p>
                         </div>
                     </form>

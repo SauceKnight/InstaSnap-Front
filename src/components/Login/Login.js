@@ -30,7 +30,7 @@ class Login extends React.Component {
     render() {
 
         if (this.props.token) {
-            return <Redirect to="/" />;
+            return <Redirect to="/home" />;
         }
 
         return (

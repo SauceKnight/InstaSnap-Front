@@ -74,7 +74,7 @@ class Upload extends React.Component {
     render() {
 
         if (this.state.uploaded === 'true') {
-            return <Redirect to="/" />;
+            return <Redirect to="/home" />;
         }
 
         return (
