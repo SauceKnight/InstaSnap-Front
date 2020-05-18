@@ -1,9 +1,9 @@
-.upload_image{
+.uploadImage{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 40px;
     z-index: 1;
-    justify-content: center;
     
 }
 
@@ -11,29 +11,25 @@
     cursor: pointer;
 }
 
-.imagepre_upload {
-    width: 300px;
-    height: 300px;
+.imagePre {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin-bottom: 20px;
 }
 
 .preview {
     display: flex;
     flex-direction: column;
     width: 400px;
+    align-items: center;
 }
 
-.image_form{
+.profile_form{
     display: hidden;
 }
 
-
-.caption_context {
-    margin: 5px;
-    width: 75%;
-    border-radius: 5px;
-    border: 1px solid black;
-}
-.upload_button {
+.update_button {
     display:inline-block;
     padding:0.3em 1.2em;
     margin:0 0.3em 0.3em 0;
@@ -45,5 +41,5 @@
     background-color:#4eb5f1;
     text-align:center;
     transition: all 0.2s;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }

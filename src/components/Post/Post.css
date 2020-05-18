@@ -21,9 +21,11 @@
     justify-content: flex-start;
 }
 
-.UserPostProfileImg {
-    border-radius: 5px;
-    overflow: hidden;
+.post_profile_pic {
+    height: 30px;
+    width: 30px;
+    border-radius: 40px;
+    margin: 2px;
 }
 
 .PostImg {

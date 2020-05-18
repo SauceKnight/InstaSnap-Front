@@ -1,12 +1,14 @@
 import React from 'react';
 import Main from './components/Main/Main.js';
 import Login from './components/Login/Login';
+import UpdateProfile from './components/UpdateProfile/UpdateProfile.js';
 import Register from './components/Register/Register';
 import UserProfile from './components/UserProfile/UserProfile.js';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Upload from './components/Upload/Upload.js';
 import { loadToken } from './store/authentication';
+import './App.css';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
@@ -39,9 +41,10 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={Login} />
           <Route exact path='/register' component={Register} />
-          {/* <PrivateRoute exact path="/upload" component={Upload} /> */}
           <Route exact path="/profile/:userName" component={UserProfile} />
           <PrivateRoute path="/home" exact={true} needLogin={this.props.needLogin} component={Main} />
+          <Route exact path="/update" component={UpdateProfile} />
+
         </Switch>
       </BrowserRouter>
     );

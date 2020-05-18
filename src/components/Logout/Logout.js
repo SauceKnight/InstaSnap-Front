@@ -2,12 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { logout } from '../../store/authentication';
+import './Logout.css';
 
 const LogoutButton = props =>
     props.loggedOut ?
         <Redirect to="/" /> :
         <div id="logout-button-holder">
-            <button onClick={props.logout}>Logout</button>
+            <button className='logout_button' onClick={props.logout}>Logout</button>
         </div>
     ;
 

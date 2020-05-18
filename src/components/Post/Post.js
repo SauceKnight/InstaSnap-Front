@@ -44,7 +44,7 @@ class Post extends React.Component {
                         <div className='Post' key={post.id}>
                             <header className='UserPost'>
                                 <div className='UserPostProfileImg'>
-                                    <img src={post.User.profilePic} width='30px' height='30px' />
+                                    <img src={post.User.profilePic} className='post_profile_pic' />
                                 </div>
                                 <div className='UserPostName'>
                                     <Link to={`/profile/${post.User.userName}`}> {post.User.userName}</Link>

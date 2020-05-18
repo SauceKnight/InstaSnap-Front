@@ -12,7 +12,8 @@ body {
     height: 45px;
     position: fixed;
     width: 100%;
-    background-color: white;
+    /* background: linear-gradient(.25turn, #08469E, #C2352D); */
+    background-image: linear-gradient(90deg, #C2352D 50%, #08469E 50%);
     z-index: 10;
     
 }
@@ -40,6 +41,7 @@ body {
     font-size: 26px;
     margin: 0;
     margin-bottom: 4px;
+    color: white;
 }
 
 /* input {
@@ -69,9 +71,14 @@ body {
 width: 140px;
 border-radius: 4px;
 outline: none;
-border: 1px solid gray;
+border: 1px solid white;
 height: 18px;
+background: none;
+color: white;
 }
+.search_bar input::placeholder {
+    color: white;
+    }
 
 .blur {
     background: rgba(0,0,0,.5);
@@ -82,6 +89,7 @@ height: 18px;
 .InstaText {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 .logout {
     font-size: 12px;

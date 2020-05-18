@@ -5,6 +5,7 @@ import { getProfilePosts } from '../../store/userProfile';
 import { getUser } from '../../store/user';
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header.js'
+import UpdateProfile from '../UpdateProfile/UpdateProfile'
 
 const UserProfile = (props) => {
 
@@ -19,6 +20,19 @@ const UserProfile = (props) => {
         props.handleCreated(posts)
     }
 
+    const updateProfile = (e) => {
+        e.preventDefault();
+        const form = document.querySelector('#profile_form');
+        const userProf = document.querySelector('.user_profile');
+        const posts = document.querySelectorAll('.Post');
+        form.classList.toggle('profile_form');
+        form.classList.toggle('form_display');
+        userProf.classList.toggle('blur');
+        posts.forEach(post => {
+            return post.classList.toggle('blur');
+        })
+    }
+
 
 
     if (!props.userProfile) {
@@ -30,19 +44,21 @@ const UserProfile = (props) => {
 
     return (
         <div>
+            <UpdateProfile />
             <Header />
             <div className='user_profile'>
-                {console.log(props)}
-                <img src={props.user.profilePic} className='profile_pic' />
-                <p>{props.user.userName}</p>
-
+                <div className='user_info'>
+                    <img src={props.user.profilePic} className='profile_pic' />
+                    <p>{props.user.userName}</p>
+                </div>
+                <button className='profile_button' onClick={updateProfile}>Update Profile</button>
             </div>
             {props.userProfile.map(post => {
                 return (
                     <div className='Post' key={post.id}>
                         <header className='UserPost'>
                             <div className='UserPostProfileImg'>
-                                <img src='https://cdn.pixabay.com/photo/2016/08/09/17/52/instagram-1581266_960_720.jpg' width='30px' height='30px' />
+                                <img src={props.user.profilePic} className='user_profile_postpic' />
                             </div>
                             <div className='UserPostName'>
                                 <Link to={`/profile/${props.match.params.userName}`}> {props.match.params.userName}</Link>

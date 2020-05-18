@@ -3,27 +3,22 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
-import './Upload.css';
+import './UpdateProfile.css';
 import { API } from '../../config';
 
 const CLOUDINARY_UPLOAD_PRESET = 'InstaSnap';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/sauceknight/image/upload';
 
-class Upload extends React.Component {
+class UpdateProfile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             image: '',
-            caption: '',
+            username: '',
+            email: '',
             uploaded: 'false'
         };
-        // this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-    // async handleSubmit(e) {
-    //     e.preventDefault();
-    //     // this.props.login(this.state.username, this.state.password);
-    // }
 
     onImageDrop = files => {
         this.setState({ uploadedFile: files[0] });
@@ -48,41 +43,54 @@ class Upload extends React.Component {
         });
     }
 
-    updateCaption = (e) => {
-        this.setState({ caption: e.target.value });
+    updateUsername = (e) => {
+        this.setState({ username: e.target.value });
+    }
+
+    updateEmail = (e) => {
+        this.setState({ email: e.target.value });
     }
 
     uploadImg = async (e) => {
-        console.log(this.state.image);
-        console.log(this.state.caption);
 
 
         const image = this.state.image;
-        const caption = this.state.caption;
-        const userID = parseInt(window.localStorage.getItem('userID'));
-        console.log(userID);
-        const response = await fetch(`${API}/user/upload`, {
-            method: 'post',
+        const username = this.state.username;
+        const email = this.state.email;
+        const userName = window.localStorage.getItem('userName');
+        window.localStorage.setItem("userName", username);
+        window.history.pushState("", "", `/profile/${username}`);
+        const response = await fetch(`${API}/user/${userName}`, {
+            method: 'put',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ image, caption, userID }),
+            body: JSON.stringify({ image, username, email }),
         });
 
         this.setState({ uploaded: 'true' });
-        const back = document.querySelector('.all_posts');
-        back.classList.remove('blur');
-
+        if (response.ok) {
+            const payload = await response.json();
+            window.localStorage.setItem("userName", payload.userProfile.userName);
+        }
 
     }
 
     render() {
 
         if (this.state.uploaded === 'true') {
-            return <Redirect to="/home" />;
+            const userName = window.localStorage.getItem('userName');
+            return <Redirect to={`/profile/${userName}`} />;
         }
 
         return (
-            <div className='image_form' id='image_form'>
-                <form className='upload_image'>
+            <div className='profile_form' id='profile_form'>
+                <form className='uploadImage'>
+                    <label>
+                        <span>Enter New Username</span> <input type='text' placeholder='New Username' onChange={this.updateUsername} />
+                    </label>
+                    <label value='New Username'>
+                        <span>Enter New Email</span> <input type='text' placeholder='New Email' onChange={this.updateEmail} />
+                    </label>
+                    <span>New Profile Picture</span>
                     <div className='imageDrop'>
                         <Dropzone
                             onDrop={this.onImageDrop.bind(this)}
@@ -106,16 +114,15 @@ class Upload extends React.Component {
                         <div>
                             {this.state.image === '' ? null :
                                 <div className='preview' >
-                                    <img className='imagepre_upload' src={this.state.image} />
-                                    <input type='text' className='caption_context' placeholder='Insert caption Here' onChange={this.updateCaption} />
-                                    <input type='submit' className='upload_button' value='Upload' onClick={this.uploadImg} />
+                                    <img className='imagePre' src={this.state.image} />
                                 </div>}
                         </div>
                     </div>
+                    <input type='submit' className='update_button' value='Update' onClick={this.uploadImg} />
                 </form>
             </div>
         );
     }
 }
 
-export default Upload;
+export default UpdateProfile;
