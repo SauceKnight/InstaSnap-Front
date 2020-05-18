@@ -85,10 +85,10 @@ class UpdateProfile extends React.Component {
             <div className='profile_form' id='profile_form'>
                 <form className='uploadImage'>
                     <label>
-                        <span>Enter New Username</span> <input type='text' placeholder='New Username' onChange={this.updateUsername} />
+                        <span>Enter New Username</span> <input className='new_username' type='text' placeholder='New Username' onChange={this.updateUsername} />
                     </label>
                     <label value='New Username'>
-                        <span>Enter New Email</span> <input type='text' placeholder='New Email' onChange={this.updateEmail} />
+                        <span>Enter New Email</span> <input type='text' className='new_email' placeholder='New Email' onChange={this.updateEmail} />
                     </label>
                     <span>New Profile Picture</span>
                     <div className='imageDrop'>

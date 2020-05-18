@@ -42,6 +42,12 @@ const UserProfile = (props) => {
         return null;
     }
 
+    let button;
+
+    if (props.match.params.userName === window.localStorage.getItem('userName')) {
+        button = <button className='profile_button' onClick={updateProfile}>Update Profile</button>;
+    }
+
     return (
         <div>
             <UpdateProfile />
@@ -51,7 +57,7 @@ const UserProfile = (props) => {
                     <img src={props.user.profilePic} className='profile_pic' />
                     <p>{props.user.userName}</p>
                 </div>
-                <button className='profile_button' onClick={updateProfile}>Update Profile</button>
+                {button}
             </div>
             {props.userProfile.map(post => {
                 return (
