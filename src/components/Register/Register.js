@@ -44,7 +44,7 @@ class Register extends React.Component {
                     <img className='cover' src='/images/phone-test.jpg' />'
                 </div>
                 <div className='sign-up-form'>
-                    <h1>Instagram</h1>
+                    <h1 className='register_title'>InstaSnap</h1>
                     <form className='sign-up-info' onSubmit={this.handleSubmit} >
                         <input className="info" type="text" placeholder='Email' value={this.state.email} onChange={this.updateEmail} /><br />
                         <input className="info" type="text" placeholder='Username' value={this.state.username} onChange={this.updateUsername} /><br />
