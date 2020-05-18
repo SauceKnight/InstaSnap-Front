@@ -53,6 +53,9 @@ const UserProfile = (props) => {
                         </div>
                         <div className='PostComments'>
                             <p> {props.user.userName}: {post.caption}</p>
+                            <form className='comment_form'>
+                                <input type='text' placeholder='Add a comment' />
+                            </form>
                         </div>
                     </div>
                 );

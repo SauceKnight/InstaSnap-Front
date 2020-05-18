@@ -39,7 +39,7 @@ class Login extends React.Component {
                     <img className='cover' src='/images/phone-test.jpg' />'
                 </div>
                 <div className='sign-up-form'>
-                    <h1>Instagram</h1>
+                    <h1>InstaSnap</h1>
                     <form className='sign-up-info' onSubmit={this.handleSubmit} >
                         <input className="info" type="text" placeholder='Username' value={this.state.username} onChange={this.updateUsername} /><br />
                         <input className="info" type="password" autoComplete="off" placeholder='Password' required value={this.state.password} onChange={this.updatePassword} /><br />
@@ -58,7 +58,7 @@ class Login extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        token: state.authentication.user,
+        token: state.authentication.token,
     };
 };
 

@@ -81,7 +81,7 @@ class Upload extends React.Component {
         }
 
         return (
-            <div className='image_form'>
+            <div className='image_form' id='image_form'>
                 <form className='uploadImage'>
                     <div className='imageDrop'>
                         <Dropzone
@@ -118,19 +118,4 @@ class Upload extends React.Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         token: state.authentication.post,
-//     };
-// };
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         uploadImg: (image, caption) => dispatch(uploadImg(image, caption))
-//     };
-// };
-
-// Yes, this looks funny, but you will often
-// see this kind of indentation in others'
-// code when using React and Redux.
 export default Upload;

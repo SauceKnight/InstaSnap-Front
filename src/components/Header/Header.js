@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import './Header.css';
 import Upload from '../Upload/Upload'
+import Logout from '../Logout/Logout';
 
 
 
@@ -9,11 +10,23 @@ const Header = () => {
 
     const displayForm = e => {
         e.preventDefault();
-        const form = document.querySelector('.image_form');
+        const form = document.querySelector('#image_form');
         const back = document.querySelector('.all_posts');
-        form.classList.remove('image_form');
-        form.classList.add('form_display');
-        back.classList.add('blur');
+        const userProf = document.querySelector('.user_profile');
+        const posts = document.querySelectorAll('.Post');
+        if (form && back) {
+            form.classList.toggle('image_form');
+            form.classList.toggle('form_display');
+            back.classList.toggle('blur');
+        }
+        else {
+            form.classList.toggle('image_form');
+            form.classList.toggle('form_display');
+            userProf.classList.toggle('blur');
+            posts.forEach(post => {
+                return post.classList.toggle('blur');
+            })
+        }
 
     }
 
@@ -30,6 +43,7 @@ const Header = () => {
                     <a onClick={displayForm}>
                         <img className='upload_img' src='/images/upload-img.png' />
                     </a>
+                    <Logout />
                 </div>
             </nav>
             <Upload />

@@ -14,14 +14,6 @@ export const getPosts = () => async (dispatch) => {
     }
 }
 
-// export const getProfilePosts = (user) => async (dispatch) => {
-//     const response = await fetch(`${API}/profile/${user}`);
-//     if (response.ok) {
-//         const { userProfile } = await response.json();
-//         dispatch(profile(userProfile));
-//     }
-// }
-
 export default function reducer(state = { types: [] }, action) {
     switch (action.type) {
 
@@ -31,12 +23,6 @@ export default function reducer(state = { types: [] }, action) {
                 list: action.list
             };
         }
-        // case PROFILE: {
-        //     return {
-        //         ...state,
-        //         list: action.list.Posts
-        //     };
-        // }
 
         default: return state;
     }

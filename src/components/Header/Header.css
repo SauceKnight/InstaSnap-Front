@@ -57,7 +57,7 @@ body {
 .form_display {
     z-index: 10;
     position: fixed;
-    top: 25%;
+    top: 15%;
     left: 30%;
     margin: 0;
     width: 600px;
@@ -76,4 +76,13 @@ height: 18px;
 .blur {
     background: rgba(0,0,0,.5);
     opacity: .2;
+}
+
+
+.InstaText {
+    display: flex;
+    flex-direction: row;
+}
+.logout {
+    font-size: 12px;
 }

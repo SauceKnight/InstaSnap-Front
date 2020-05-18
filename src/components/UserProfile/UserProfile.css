@@ -16,3 +16,7 @@ border-radius: 4px;
     margin-bottom: 10px;
     padding-top: 55px;
 }
+
+.comment_form {
+    border-top: 1px solid gray;
+}

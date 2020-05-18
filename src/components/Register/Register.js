@@ -64,7 +64,7 @@ class Register extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        token: state.authentication.user,
+        token: state.authentication.token,
     };
 };
 
